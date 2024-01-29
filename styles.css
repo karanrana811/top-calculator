@@ -1,0 +1,10 @@
+body {
+    background-color:rgb(122, 52, 24);
+}
+
+.display {
+    background-color: white;
+    border-color: white;
+    width: 200px;
+    height: 20px;
+}
