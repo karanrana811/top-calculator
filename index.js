@@ -12,11 +12,11 @@ const fillDisp = () => {
         num.addEventListener('click', (event) => {
             let id = event.target.id
             if (id === 'zero') {
-                prevClick === 'add' ? display.textContent = 0 : display.textContent += '0';
+                (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide') ? display.textContent = 0 : display.textContent += '0';
                 prevClick = 'zero';
             }
             if (id === 'one') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 1;
                 } else {
                     display.textContent += '1'
@@ -24,7 +24,7 @@ const fillDisp = () => {
                 prevClick = 'one'
             }
             if (id === 'two') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 2;
                 } else {
                     display.textContent += '2'
@@ -32,7 +32,7 @@ const fillDisp = () => {
                 prevClick = 'two'
             }
             if (id === 'three') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 3;
                 } else {
                     display.textContent += '3'
@@ -40,7 +40,7 @@ const fillDisp = () => {
                 prevClick = 'three'
             }
             if (id === 'four') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 4;
                 } else {
                     display.textContent += '4'
@@ -48,7 +48,7 @@ const fillDisp = () => {
                 prevClick = 'four'
             }
             if (id === 'five') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 5;
                 } else {
                     display.textContent += '5'
@@ -56,7 +56,7 @@ const fillDisp = () => {
                 prevClick = 'five'
             }
             if (id === 'six') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 6;
                 } else {
                     display.textContent += '6'
@@ -64,7 +64,7 @@ const fillDisp = () => {
                 prevClick = 'six'
             }
             if (id === 'seven') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 7;
                 } else {
                     display.textContent += '7'
@@ -72,7 +72,7 @@ const fillDisp = () => {
                 prevClick = 'seven'
             }
             if (id === 'eight') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 8;
                 } else {
                     display.textContent += '8'
@@ -80,7 +80,7 @@ const fillDisp = () => {
                 prevClick = 'eight'
             }
             if (id === 'nine') {
-                if (prevClick === 'add' || display.textContent === '0') {
+                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
                     display.textContent = 9;
                 } else {
                     display.textContent += '9'
@@ -92,10 +92,25 @@ const fillDisp = () => {
                 operator = '+';
                 prevClick = 'add';
             }
+            if (id === 'subtract'){
+                firstNum = display.textContent;
+                operator = '-';
+                prevClick = 'subtract';
+            }
+            if (id === 'multiply') {
+                firstNum = display.textContent;
+                operator = '*';
+                prevClick = 'multiply';
+            }
+            if (id === 'divide') {
+                firstNum = display.textContent;
+                operator = '/';
+                prevClick = 'divide';
+            }
             if (id === 'equal') {
                 if (prevClick != 'equal') {
                     secondNum = display.textContent;
-                    display.textContent = (firstNum && operator) ? operate(operator, firstNum, secondNum) : 0;
+                    display.textContent = (firstNum && operator) ? operate(operator, firstNum, secondNum) : displayContent;
                 }
                 prevClick = 'equal'
             }
@@ -119,11 +134,11 @@ const fillDisp = () => {
 
 const add = (a, b) => +a + +b;
 
-const subtract = (a, b) => a - b;
+const subtract = (a, b) => +a - +b;
 
-const multiply = (a, b) => a * b;
+const multiply = (a, b) => +a * +b;
 
-const divide = (a, b) => a / b;
+const divide = (a, b) => +a / +b;
 
 const operate = (op, numOne, numTwo) => {
     let returnVal;
