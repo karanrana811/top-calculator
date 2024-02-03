@@ -1,10 +1,41 @@
 body {
     background-color: rgb(122, 52, 24);
+    height: 100vh;
+    margin: 0;
+    display: flex;
 }
 
 .display {
     background-color: white;
     border-color: white;
-    width: 200px;
-    height: 20px;
+    margin: 0 2px 2px 2px;
+    
+}
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    align-items: center;
+    height: 50%;
+}
+
+.calculator-container > div {
+    display: flex;
+    width: 100%;
+    flex: 1;
+} 
+
+.calculator-container button{
+    flex: 1;
+    margin: 2px;
+}
+
+.calculator-container div button:first-child {
+    margin-left: 0;
+}
+
+.calculator-container div button:last-child {
+    margin-right: 0;
 }
