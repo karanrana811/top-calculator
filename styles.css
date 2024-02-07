@@ -3,19 +3,24 @@ body {
     height: 100vh;
     margin: 0;
     display: flex;
+    font-size: 40px;
 }
 
 .display {
     background-color: white;
     border-color: white;
     margin: 0 2px 2px 2px;
-    
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
 }
 
 .calculator-container {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 30%;
     margin: auto;
     align-items: center;
     height: 50%;
@@ -30,6 +35,7 @@ body {
 .calculator-container button{
     flex: 1;
     margin: 2px;
+    font-size: 40px;
 }
 
 .calculator-container div button:first-child {

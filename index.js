@@ -3,6 +3,7 @@ const display = document.querySelector('.display');
 let displayContent = 0;
 let firstNum;
 let operator;
+let operatorArr = [];
 let secondNum;
 let prevClick;
 
@@ -12,7 +13,7 @@ const fillDisp = () => {
         num.addEventListener('click', (event) => {
             let id = event.target.id
             if (id === 'zero') {
-                (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide') ? display.textContent = 0 : display.textContent += '0';
+                (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide') ? display.textContent = 0: display.textContent += '0';
                 prevClick = 'zero';
             }
             if (id === 'one') {
@@ -88,22 +89,55 @@ const fillDisp = () => {
                 prevClick = 'nine'
             }
             if (id === 'add') {
-                firstNum = display.textContent;
+                if (prevClick !== 'add') {
+                    operatorArr.push('+')
+                }
+                if (operatorArr.length > 1) {
+                    secondNum = display.textContent;
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                } else {
+                    firstNum = display.textContent;
+                }
                 operator = '+';
                 prevClick = 'add';
             }
-            if (id === 'subtract'){
-                firstNum = display.textContent;
+            if (id === 'subtract') {
+                if (prevClick !== 'subtract') {
+                    operatorArr.push('-')
+                };
+                if (operatorArr.length > 1) {
+                    secondNum = display.textContent;
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                } else {
+                    firstNum = display.textContent;
+                }
                 operator = '-';
                 prevClick = 'subtract';
+
             }
             if (id === 'multiply') {
-                firstNum = display.textContent;
+                if (prevClick !== 'multiply') {
+                    operatorArr.push('*')
+                };
+                if (operatorArr.length > 1) {
+                    secondNum = display.textContent;
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                } else {
+                    firstNum = display.textContent;
+                }
                 operator = '*';
                 prevClick = 'multiply';
             }
             if (id === 'divide') {
-                firstNum = display.textContent;
+                if (prevClick !== 'divide') {
+                    operatorArr.push('/')
+                }
+                if (operatorArr.length > 1) {
+                    secondNum = display.textContent;
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                } else {
+                    firstNum = display.textContent;
+                }
                 operator = '/';
                 prevClick = 'divide';
             }
@@ -112,7 +146,8 @@ const fillDisp = () => {
                     secondNum = display.textContent;
                     display.textContent = (firstNum && operator) ? operate(operator, firstNum, secondNum) : displayContent;
                 }
-                prevClick = 'equal'
+                prevClick = 'equal';
+                operatorArr = [];
             }
             if (id === 'clear') {
                 display.textContent = 0;
@@ -120,6 +155,7 @@ const fillDisp = () => {
                 secondNum = '';
                 operator = '';
                 prevClick = 'clear'
+                operatorArr = [];
             }
             if (prevClick === 'equal') {
                 firstNum = '';
