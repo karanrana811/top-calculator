@@ -252,7 +252,3 @@ const operate = (op, numOne, numTwo) => {
 }
 
 fillDisp();
-
-/*
-if displayContent.length > 20, prevent any more number input
-*/
