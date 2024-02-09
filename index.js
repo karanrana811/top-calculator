@@ -6,95 +6,142 @@ let operator;
 let operatorArr = [];
 let secondNum;
 let prevClick;
-
+let isShort = true;
 
 const fillDisp = () => {
     numList.forEach(num => {
         num.addEventListener('click', (event) => {
+            if (prevClick !== 'add' && prevClick !== 'subtract' && prevClick !== 'multiply' && prevClick !== 'divide' && prevClick !== 'equal') {
+                display.textContent.length > 20 ? isShort = false : isShort = true;
+            }
             let id = event.target.id
+
             if (id === 'zero') {
+                if (!isShort) {
+                    event.preventDefault();
+                } else {
                 (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide') ? display.textContent = 0: display.textContent += '0';
-                prevClick = 'zero';
+                prevClick = 'zero';}
             }
             if (id === 'one') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 1;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '1'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 1;
+                    } else {
+                        display.textContent += '1'
+                    }
+                    prevClick = 'one'
                 }
-                prevClick = 'one'
             }
             if (id === 'two') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 2;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '2'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 2;
+                    } else {
+                        display.textContent += '2'
+                    }
+                    prevClick = 'two'
                 }
-                prevClick = 'two'
             }
             if (id === 'three') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 3;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '3'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 3;
+                    } else {
+                        display.textContent += '3'
+                    }
+                    prevClick = 'three'
                 }
-                prevClick = 'three'
             }
             if (id === 'four') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 4;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '4'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 4;
+                    } else {
+                        display.textContent += '4'
+                    }
+                    prevClick = 'four'
                 }
-                prevClick = 'four'
             }
             if (id === 'five') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 5;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '5'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 5;
+                    } else {
+                        display.textContent += '5'
+                    }
+                    prevClick = 'five'
                 }
-                prevClick = 'five'
             }
             if (id === 'six') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 6;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '6'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 6;
+                    } else {
+                        display.textContent += '6'
+                    }
+                    prevClick = 'six'
                 }
-                prevClick = 'six'
             }
             if (id === 'seven') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 7;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '7'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 7;
+                    } else {
+                        display.textContent += '7'
+                    }
+                    prevClick = 'seven'
                 }
-                prevClick = 'seven'
             }
             if (id === 'eight') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 8;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '8'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 8;
+                    } else {
+                        display.textContent += '8'
+                    }
+                    prevClick = 'eight'
                 }
-                prevClick = 'eight'
             }
             if (id === 'nine') {
-                if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
-                    display.textContent = 9;
+                if (!isShort) {
+                    event.preventDefault();
                 } else {
-                    display.textContent += '9'
+                    if (prevClick === 'add' || prevClick === 'subtract' || prevClick === 'multiply' || prevClick === 'divide' || display.textContent === '0') {
+                        display.textContent = 9;
+                    } else {
+                        display.textContent += '9'
+                    }
+                    prevClick = 'nine'
                 }
-                prevClick = 'nine'
             }
             if (id === 'add') {
+                isShort = true;
                 if (prevClick !== 'add') {
                     operatorArr.push('+')
                 }
-                if (operatorArr.length > 1) {
+                if (operatorArr.length > 1 &&
+                    (prevClick !== 'add' || prevClick !== 'subtract' || prevClick !== 'multiply' || prevClick !== 'divide')
+                ) {
                     secondNum = display.textContent;
-                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum);
+                    display.textContent = firstNum;
                 } else {
                     firstNum = display.textContent;
                 }
@@ -102,12 +149,16 @@ const fillDisp = () => {
                 prevClick = 'add';
             }
             if (id === 'subtract') {
+                isShort = true;
+
                 if (prevClick !== 'subtract') {
                     operatorArr.push('-')
                 };
-                if (operatorArr.length > 1) {
+                if (operatorArr.length > 1 && (prevClick !== 'add' || prevClick !== 'subtract' || prevClick !== 'multiply' || prevClick !== 'divide')) {
                     secondNum = display.textContent;
-                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum);
+                    display.textContent = firstNum;
+
                 } else {
                     firstNum = display.textContent;
                 }
@@ -116,12 +167,16 @@ const fillDisp = () => {
 
             }
             if (id === 'multiply') {
+                isShort = true;
+
                 if (prevClick !== 'multiply') {
                     operatorArr.push('*')
                 };
-                if (operatorArr.length > 1) {
+                if (operatorArr.length > 1 && (prevClick !== 'add' || prevClick !== 'subtract' || prevClick !== 'multiply' || prevClick !== 'divide')) {
                     secondNum = display.textContent;
-                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum);
+                    display.textContent = firstNum;
+
                 } else {
                     firstNum = display.textContent;
                 }
@@ -129,12 +184,16 @@ const fillDisp = () => {
                 prevClick = 'multiply';
             }
             if (id === 'divide') {
+                isShort = true;
+
                 if (prevClick !== 'divide') {
                     operatorArr.push('/')
                 }
-                if (operatorArr.length > 1) {
+                if (operatorArr.length > 1 && (prevClick !== 'add' || prevClick !== 'subtract' || prevClick !== 'multiply' || prevClick !== 'divide')) {
                     secondNum = display.textContent;
-                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum)
+                    firstNum = operate(operatorArr[operatorArr.length - 2], firstNum, secondNum);
+                    display.textContent = firstNum;
+
                 } else {
                     firstNum = display.textContent;
                 }
@@ -142,6 +201,8 @@ const fillDisp = () => {
                 prevClick = 'divide';
             }
             if (id === 'equal') {
+                isShort = true;
+
                 if (prevClick != 'equal') {
                     secondNum = display.textContent;
                     display.textContent = (firstNum && operator) ? operate(operator, firstNum, secondNum) : displayContent;
@@ -191,3 +252,7 @@ const operate = (op, numOne, numTwo) => {
 }
 
 fillDisp();
+
+/*
+if displayContent.length > 20, prevent any more number input
+*/

@@ -4,6 +4,8 @@ body {
     margin: 0;
     display: flex;
     font-size: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 .display {
@@ -15,27 +17,29 @@ body {
     padding-right: 1rem;
     padding-bottom: 1rem;
     box-sizing: border-box;
+
 }
 
 .calculator-container {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    margin: auto;
+    width: 500px;
     align-items: center;
     height: 50%;
+    flex: 0 0 500px;
 }
 
 .calculator-container > div {
     display: flex;
     width: 100%;
-    flex: 1;
+    flex: 1 0 0;
 } 
 
 .calculator-container button{
-    flex: 1;
+    flex: 1 0 0;
     margin: 2px;
     font-size: 40px;
+    
 }
 
 .calculator-container div button:first-child {
