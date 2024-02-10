@@ -12,7 +12,7 @@ const fillDisp = () => {
     numList.forEach(num => {
         num.addEventListener('click', (event) => {
             if (prevClick !== 'add' && prevClick !== 'subtract' && prevClick !== 'multiply' && prevClick !== 'divide' && prevClick !== 'equal') {
-                display.textContent.length > 20 ? isShort = false : isShort = true;
+                display.textContent.length > 15 ? isShort = false : isShort = true;
             }
             let id = event.target.id
 
