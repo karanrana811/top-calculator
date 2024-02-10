@@ -72,3 +72,17 @@ body {
 .fourth-row button:last-child{
     border-bottom-right-radius: 2rem;
 }
+
+@media screen and (max-width: 499px) {
+    .display {
+        font-size: smaller;
+        
+    }
+    .calculator-container div button {
+        font-size: smaller;
+    }
+    .calculator-container {
+        flex: 0 0 300px;
+        height: 45%;
+    }
+  }
